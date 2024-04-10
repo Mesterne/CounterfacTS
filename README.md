@@ -8,7 +8,7 @@ This is the code from our paper [Kjærnli et al. 2024: Probing the Robustness of
 
 ## Running the application
 
-To run the application start by installing and activating the environment after cloning the repository in your machine:
+To run the application start by creating and activating the environment after cloning the repository in your machine:
 
 ```shell
 conda env create -f env.yaml
