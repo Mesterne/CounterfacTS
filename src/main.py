@@ -1,7 +1,7 @@
 import argparse
 import yaml
 
-from .app.counterfacts import CounterfacTS
+from .app.whatif import WhatIf
 
 
 parser = argparse.ArgumentParser()
@@ -11,4 +11,4 @@ args = vars(parser.parse_args())
 with open(args["config_path"], "r") as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
 
-CounterfacTS(config)
+WhatIf(config)
