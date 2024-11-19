@@ -46,17 +46,16 @@ def load_train_data(datadir: str, batch_size: int) -> List[pd.Series]:
             ts = df[df.columns[i:i + 2]].set_index(df[f"index{i // 3}"])
             ts.index = pd.DatetimeIndex(ts.index, freq="infer")
             ts = ts.drop([f"index{i // 3}"], axis=1)
+
             dfs[idx] = ts.T.iloc[0]  # convert to series
             idx += 1
+
     return dfs
 
 
 def load_test_data(dataset: str, ts_length: int) -> List[pd.Series]:
-    print(f"Dataset: {dataset}")
     dataset = get_dataset(dataset).test
     data = []
-    print(f"Dataset: {dataset}")
-    print(f"TS length: {ts_length}")
     print("Loading test data")
     for ts in tqdm(dataset):
         values = ts["target"][-ts_length:]
